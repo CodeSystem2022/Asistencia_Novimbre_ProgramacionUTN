@@ -1,0 +1,47 @@
+/*
+Ejercicio 3: Leer 5 números por teclado, almacernarlos en un arreglo y a continuación
+realizar la media de los números positivos, la media de los números negativos y contar 
+el número de ceros.
+*/
+package arreglos_ejercicio_3;
+
+import java.util.Scanner;
+
+public class Arreglos_Ejercicio_3 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        float arreglos[] = new float[5];
+        int positivos=0, negativos=0, media_positivos, media_negativos;
+        int conteo0=0, conteo_negativos=0, conteo_positivos=0;
+        System.out.println("Guardamos los números en el arreglo");
+        for(int i = 0; i < 5; i++){
+            System.out.println((i+1)+". Ingrese un número: ");
+            arreglos[i]= entrada.nextFloat();
+            if(arreglos[i] > 0){
+                positivos += arreglos[i];
+                conteo_positivos++;
+            }else if(arreglos[i] < 0){
+                negativos += arreglos[i];
+                conteo_positivos++;
+            }else{
+                conteo0 ++;
+                }
+        }
+            if(conteo_positivos == 0){
+                System.out.println("\nNo se puede sacar la media de los números positivos");
+            }
+            else{
+                media_positivos = positivos/conteo_positivos;
+                System.out.println("\nLa media de los positivos es: "+media_positivos);
+            }
+            if(conteo_negativos == 0){
+                System.out.println("\nNo se puede sacar la media de los números negativos");
+            }
+            else{
+                media_negativos = negativos/conteo_negativos;
+                System.out.println("La media de los negativos es: "+media_negativos);
+            }                       
+            
+            System.out.println("La cantidad de cero son: "+conteo0);   
+    }    
+}
